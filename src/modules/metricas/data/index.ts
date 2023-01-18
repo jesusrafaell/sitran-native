@@ -30,7 +30,7 @@ const data: { id: number; data: ChartData; name: string }[] = [
 		name: 'Prueba Si/no',
 	},
 	{
-		id: 2,
+		id: 3,
 		data: {
 			labels: ['Tranred', 'Milpagos', 'Nasis'],
 			datasets: [

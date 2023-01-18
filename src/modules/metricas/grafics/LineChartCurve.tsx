@@ -24,6 +24,10 @@ const chartConfig: ChartConfig = {
 		strokeDasharray: null,
 		stroke: `rgba(255, 255, 255, 0.1)`,
 	},
+	propsForVerticalLabels: {
+		fontSize: 10,
+		fontWeight: 'bold',
+	},
 	propsForDots: {
 		r: '4', //tamano del circulo
 		strokeWidth: '2', //tamano del raya del circulo

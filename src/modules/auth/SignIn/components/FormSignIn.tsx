@@ -20,9 +20,9 @@ const FormSignIn = ({ formik }: FormProps) => {
 		return false;
 	};
 
-	useEffect(() => {
-		setError(handleError(errors));
-	}, errors);
+	// useEffect(() => {
+	// 	setError(handleError(errors));
+	// }, errors);
 
 	return (
 		<View style={styles.form}>
@@ -32,13 +32,13 @@ const FormSignIn = ({ formik }: FormProps) => {
 				</Text>
 			</View>
 			<InputText
-				name='email'
+				name='user'
 				// label='login'
 				setFieldValue={setFieldValue}
-				value={values.email}
+				value={values.user}
 				extraStyles={styles.input}
-				error={errors.email}
-				touched={touched.email}
+				error={errors.user}
+				touched={touched.user}
 				placeholder='Usuario'
 			/>
 			<InputText

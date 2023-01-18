@@ -1,17 +1,19 @@
 import { useFormik } from 'formik';
+import { handleLogin } from './handles';
 
 const useSignIn = () => {
 	const formik = useFormik({
 		initialValues: {
-			email: '',
+			user: '',
 			password: '',
 		},
-		onSubmit: (values) => {
-			submit(values);
+		onSubmit: async (values) => {
+			await submit(values.user, values.password);
 		},
 	});
-	const submit = (values: any) => {
-		alert(JSON.stringify(values, null, 2));
+	const submit = async (user: string, password: string) => {
+		const aux = await handleLogin(user, password);
+		console.log(aux);
 	};
 
 	const navigateToRegister = () => {
