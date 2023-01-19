@@ -1,47 +1,69 @@
 import { ChartData } from 'react-native-chart-kit/dist/HelperTypes';
 
-const data: { id: number; data: ChartData; name: string }[] = [
+export interface DataInt {
+	name: string;
+	population: number;
+	color: string;
+	legendFontColor: string;
+	legendFontSize: number;
+}
+
+const data: { grafico: { name: string; data: DataInt[] } }[] = [
 	{
-		id: 1,
-		data: {
-			labels: ['carropago', 'librepago', 'milpagos', 'bvc', 'plaza', 'bnc'],
-			datasets: [
+		grafico: {
+			name: 'Pos transando',
+			data: [
 				{
-					data: [20000, 60000, 140000, 1000, 2000, 15000],
-					color: (opacity = 1) => `rgba(55, 35, 106, ${opacity})`, // optional
-					strokeWidth: 4, // optional
+					name: 'Milpagos',
+					population: 215,
+					color: 'rgba(131, 167, 234, 1)',
+					legendFontColor: '#7F7F7F',
+					legendFontSize: 15,
+				},
+				{
+					name: 'Carropago',
+					population: 258,
+					color: '#F00',
+					legendFontColor: '#7F7F7F',
+					legendFontSize: 15,
+				},
+				{
+					name: 'Librepago',
+					population: 535,
+					color: 'red',
+					legendFontColor: '#7F7F7F',
+					legendFontSize: 15,
+				},
+				{
+					name: 'BVC',
+					population: 658,
+					color: '#ffa600',
+					legendFontColor: '#7F7F7F',
+					legendFontSize: 15,
 				},
 			],
 		},
-		name: 'Cantidad de POS Transando',
 	},
 	{
-		id: 2,
-		data: {
-			labels: ['SI', 'No'],
-			datasets: [
+		grafico: {
+			name: 'Si/No',
+			data: [
 				{
-					data: [1000, 500],
-					color: (opacity = 1) => `rgba(55, 35, 106, ${opacity})`, // optional
-					strokeWidth: 4, // optional
+					name: 'Si',
+					population: 215,
+					color: 'rgba(131, 167, 234, 1)',
+					legendFontColor: '#7F7F7F',
+					legendFontSize: 15,
+				},
+				{
+					name: 'No',
+					population: 258,
+					color: '#F00',
+					legendFontColor: '#7F7F7F',
+					legendFontSize: 15,
 				},
 			],
 		},
-		name: 'Prueba Si/no',
-	},
-	{
-		id: 3,
-		data: {
-			labels: ['Tranred', 'Milpagos', 'Nasis'],
-			datasets: [
-				{
-					data: [1000, 500, 4000],
-					color: (opacity = 1) => `rgba(55, 35, 106, ${opacity})`, // optional
-					strokeWidth: 4, // optional
-				},
-			],
-		},
-		name: 'Prueba #3',
 	},
 ];
 

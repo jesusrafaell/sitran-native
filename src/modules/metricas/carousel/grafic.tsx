@@ -3,29 +3,41 @@ import { Text, View, StyleSheet, FlatList, Dimensions } from 'react-native';
 import { ChartData } from 'react-native-chart-kit/dist/HelperTypes';
 import { TouchableRipple } from 'react-native-paper';
 import BarChartCustom from '../grafics/BarChart';
-import LineChartCustom from '../grafics/PieChart';
+import PieChartCustom from '../grafics/PieChart';
 import LineChartCurve from '../grafics/LineChartCurve';
+import { DataInt } from '../data';
+import { LineChartData } from 'react-native-chart-kit/dist/line-chart/LineChart';
 
 //const bg = require('../../../../Images/fondoTranred.jpeg');
 
 interface Props {
-	data: ChartData;
+	data: DataInt[];
 	title: string;
 }
 
 const GraficCustom: FC<Props> = ({ data, title }) => {
-	const formartData = (value: ChartData) => [
+	const lineData = (data: DataInt[]): LineChartData => ({
+		labels: data.map((item: DataInt) => item.name),
+		datasets: [
+			{
+				data: data.map((item: DataInt) => item.population),
+				color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+				strokeWidth: 2,
+			},
+		],
+	});
+	const formartData = (value: DataInt[]) => [
 		{
 			id: 1,
-			component: <LineChartCurve data={value} />,
+			component: <LineChartCurve data={lineData(value)} />,
 		},
 		{
 			id: 2,
-			component: <BarChartCustom data={value} />,
+			component: <BarChartCustom data={lineData(value)} />,
 		},
 		{
 			id: 3,
-			component: <LineChartCustom data={value} />,
+			component: <PieChartCustom data={value} />,
 		},
 	];
 

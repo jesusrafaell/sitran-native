@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, Dimensions, ImageBackground } from 'react-native';
 import { BarChart, LineChart, PieChart, StackedBarChart } from 'react-native-chart-kit';
 import { ChartConfig, ChartData } from 'react-native-chart-kit/dist/HelperTypes';
+import { LineChartData } from 'react-native-chart-kit/dist/line-chart/LineChart';
 import { styles } from './styles';
 
 const bg = require('../../../../Images/fondoTranred.jpeg');

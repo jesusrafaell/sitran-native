@@ -28,11 +28,41 @@ const chartConfig = {
 };
 
 interface Props {
-	data: ChartData;
+	data: Data[];
 }
 
 const PieChartCustom = ({ data }: Props) => {
 	console.log(data);
+	const test = [
+		{
+			name: 'Milpagos',
+			population: 215,
+			color: 'rgba(131, 167, 234, 1)',
+			legendFontColor: '#7F7F7F',
+			legendFontSize: 15,
+		},
+		{
+			name: 'Carropago',
+			population: 258,
+			color: '#F00',
+			legendFontColor: '#7F7F7F',
+			legendFontSize: 15,
+		},
+		{
+			name: 'Librepago',
+			population: 535,
+			color: 'red',
+			legendFontColor: '#7F7F7F',
+			legendFontSize: 15,
+		},
+		{
+			name: 'BVC',
+			population: 658,
+			color: '#ffa600',
+			legendFontColor: '#7F7F7F',
+			legendFontSize: 15,
+		},
+	];
 
 	const colorList: string[] = [
 		'#2085ec',
@@ -44,40 +74,15 @@ const PieChartCustom = ({ data }: Props) => {
 		//
 	];
 
-	const formartDataPie = (value: ChartData): any[] => {
-		const aux: any[] = [];
-		const { labels, datasets } = value;
-		labels.map((item, i) => {
-			aux.push({
-				name: labels[i],
-				value: datasets[0].data[i],
-				color: colorList[i],
-				legendFontColor: '#7F7F7F',
-				legendFontSize: 15,
-			});
-		});
-		return aux;
-	};
-	console.log('aqui', formartDataPie(data));
-
-	const data2 = [
-		{
-			name: 'Seoul',
-			population: 21500000,
-			color: 'rgba(131, 167, 234, 1)',
-			// legendFontColor: '#7F7F7F',
-			// legendFontSize: 15,
-		},
-	];
 	return (
 		<View style={styles.grafic}>
 			<PieChart
-				data={formartDataPie(data)}
+				data={test}
 				width={screenWidth}
 				height={400}
 				// fromZero={true}
 				chartConfig={chartConfig}
-				accessor={'value'}
+				accessor={'population'}
 				backgroundColor={'transparent'}
 				// paddingLeft={'10'}
 				center={[100, 0]}
@@ -92,7 +97,7 @@ const PieChartCustom = ({ data }: Props) => {
 				}}
 			/>
 			<FlatList
-				data={formartDataPie(data)}
+				data={data}
 				renderItem={({ item }) => (
 					<View
 						style={[
@@ -119,3 +124,19 @@ const PieChartCustom = ({ data }: Props) => {
 };
 
 export default PieChartCustom;
+
+// const formartDataPie = (value: ChartData): any[] => {
+// 	const aux: any[] = [];
+// 	const { labels, datasets } = value;
+// 	labels.map((item, i) => {
+// 		aux.push({
+// 			name: labels[i],
+// 			value: datasets[0].data[i],
+// 			color: colorList[i],
+// 			legendFontColor: '#7F7F7F',
+// 			legendFontSize: 15,
+// 		});
+// 	});
+// 	return aux;
+// };
+// console.log('aqui', formartDataPie(data));

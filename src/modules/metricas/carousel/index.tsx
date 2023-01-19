@@ -3,9 +3,6 @@ import { Text, View, StyleSheet, FlatList, Dimensions } from 'react-native';
 import { ChartData } from 'react-native-chart-kit/dist/HelperTypes';
 import { TouchableRipple } from 'react-native-paper';
 import data from '../data';
-import BarChartCustom from '../grafics/BarChart';
-import LineChartCustom from '../grafics/PieChart';
-import LineChartCurve from '../grafics/LineChartCurve';
 import GraficCustom from './grafic';
 
 //const bg = require('../../../../Images/fondoTranred.jpeg');
@@ -17,7 +14,7 @@ const Carousel = () => {
 				data={data}
 				renderItem={({ item }) => (
 					<View style={styles.containerGrafic}>
-						<GraficCustom data={item.data} title={item.name} />
+						<GraficCustom data={item.grafico.data} title={item.grafico.name} />
 					</View>
 				)}
 				// horizontal
